@@ -1,0 +1,23 @@
+TODO
+
+run
+	Task.py (boilerplate)
+	SamplerTask.py
+	ChamferTask.py
+	ICPTask.py
+	SceneReconstruction.py
+	Master.py
+
+	- sample: vis original mesh, vis extracted pc: O(N)
+	- chamfer: vis original pc, closest pc: O(M*N)
+	- icp: vis original pc, closest pc, transformed pc: O(M)
+	- scene: all objects placed in, if no match, place nothing
+
+dataset sumo M items
+	- just single scene for now
+	- reimplement load project scene
+
+	Sumo.py
+
+scene reconstruction 
+	main.py
