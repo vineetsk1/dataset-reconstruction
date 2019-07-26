@@ -1,6 +1,6 @@
 import os
 import json
-import pymesh
+import pywavefront
 from datasets.dataset import Dataset
 
 class Shapenet(Dataset):
@@ -12,7 +12,7 @@ class Shapenet(Dataset):
     def load_metadata(self):
         path = os.path.join(self.path, "taxonomy.json")
         data = json.load(open(path, "r"))
-        
+
         children = set()
         top_level = {}
         for i in range(len(data)):
@@ -31,7 +31,7 @@ class Shapenet(Dataset):
                 if "." not in file:
                     top_level[name]["files"].append(file)
                     ids.append(os.path.join(name, file))
-        
+
         self.taxonomy = top_level
         self._ids = ids
 
@@ -42,5 +42,5 @@ class Shapenet(Dataset):
         return os.path.join(self.path, id, "models", "model_normalized.obj")
 
     def load(self, id):
-        mesh = pymesh.load_mesh(self.path(id))
-        return mesh
+        obj = pywavefront.Wavefront(self.path(id), create_materials=True, collect_faces=True)
+        return obj

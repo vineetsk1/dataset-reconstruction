@@ -1,4 +1,22 @@
 import numpy as np
+import pywavefront
+
+def sample_obj(obj, density=625):
+    vertices = np.asarray(obj.vertices)
+    meshes = [obj.meshes[key] for key in obj.meshes]
+    indices = [[idx for face in mesh.faces for idx in face] for mesh in meshes]
+
+    counts = [len(index) for index in indices]
+    n_faces3 = np.sum(counts)
+    start = 0
+
+    faces = np.zeros((n_faces3, 3))
+    for i, mesh in enumerate(meshes):
+        temp = vertices[indices[i], :]
+        faces[start:start+counts[i], :] = temp
+        start += counts[i]
+
+    return sample_mesh(faces, density=density)
 
 """
 faces: (3Nx3), N = # faces

@@ -1,23 +1,17 @@
-TODO
+===== ===== ===== =====
 
-run
-	Task.py (boilerplate)
-	SamplerTask.py
-	ChamferTask.py
-	ICPTask.py
-	SceneReconstruction.py
-	Master.py
+integrated on napoli
 
-	- sample: vis original mesh, vis extracted pc: O(N)
-	- chamfer: vis original pc, closest pc: O(M*N)
-	- icp: vis original pc, closest pc, transformed pc: O(M)
-	- scene: all objects placed in, if no match, place nothing
+- scene: all objects placed in, if no match, place nothing
+    > deepnds on multiple icps (one per model)
+    > given a sumo obj, find the matching category in shapenet, perform icp on all objects in that shapenet category
+
+incorporate with visualizer/logger
 
 dataset sumo M items
-	- just single scene for now
-	- reimplement load project scene
+    - just single scene for now
+    - reimplement load project scene
+    Sumo.py
 
-	Sumo.py
-
-scene reconstruction 
-	main.py
+scene reconstruction
+    main.py

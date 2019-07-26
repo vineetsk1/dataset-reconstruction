@@ -1,7 +1,8 @@
 import torch
 from torch.utils.cpp_extension import load
 
-cd = load(name="cd", sources=["utils/chamfer.cpp", "utils/chamfer.cu"])
+cd = load(name="cd", sources=["utils/chamfer.cpp"])
+# cd = load(name="cd", sources=["utils/chamfer.cpp", "utils/chamfer.cu"])
 
 class ChamferDistance(torch.nn.Module):
     def forward(ctx, xyz1, xyz2):
