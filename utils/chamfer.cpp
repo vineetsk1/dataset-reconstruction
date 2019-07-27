@@ -75,7 +75,7 @@ void cd_forward_cuda(const at::Tensor xyz1,
                      const at::Tensor idx1,
                      const at::Tensor idx2) {
     CDKernelLauncher(xyz1.size(0), xyz1.size(1), xyz1.data<float>(),
-                     xyz2.size(1), xyz2.data<float>(), dist2.data<float>(),
+                     xyz2.size(1), xyz2.data<float>(), dist1.data<float>(),
                      idx1.data<int>(), dist2.data<float>(), idx2.data<int>());
 }
 
