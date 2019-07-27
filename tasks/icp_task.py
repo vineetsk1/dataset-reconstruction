@@ -94,7 +94,7 @@ class CandidateICPTask(Task):
         return self.run_worker()
 
     def load(self):
-        with open(self.path, "r") as f:
+        with open(self.escape_path(), "r") as f:
             path1, path2, path3 = f.read().split("\n")
         with open(path1, "r") as f: min_idx = f.read()
         with open(path2, "r") as f: mesh_name = f.read()
@@ -102,9 +102,9 @@ class CandidateICPTask(Task):
 
     def save(self, data):
         min_idx, mesh_name, T = data
-        path1, path2, path3 = self.path + "_idx", self.path + "_name", self.path + "_mesh.npy"
+        path1, path2, path3 = self.escape_path() + "_idx", self.escape_path() + "_name", self.escape_path() + "_mesh.npy"
         with open(path1, "w") as f: f.write(str(min_idx))
         with open(path2, "w") as f: f.write(str(mesh_name))
         np.save(path3, T)
-        with open(self.path, "w") as f:
+        with open(self.escape_path(), "w") as f:
             f.write("{}\n{}\n{}".format(path1, path2, path3))

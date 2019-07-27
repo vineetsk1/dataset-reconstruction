@@ -45,10 +45,10 @@ class FakeTask(Task):
         return self.run_worker()
 
     def load(self):
-        with open(self.path, "r") as f:
+        with open(self.escape_path(), "r") as f:
             return f.read()
 
     def save(self, data):
-        with open(self.path, "w") as f:
+        with open(self.escape_path(), "w") as f:
             f.write(data)
 

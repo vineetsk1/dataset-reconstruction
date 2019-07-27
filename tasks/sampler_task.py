@@ -47,7 +47,7 @@ class SamplerTask(Task):
         return self.run_worker()
 
     def load(self):
-        return np.load(self.path)
+        return np.load(self.escape_path())
 
     def save(self, data):
-        np.save(self.path, data)
+        np.save(self.escape_path(), data)

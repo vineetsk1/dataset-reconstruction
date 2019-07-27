@@ -57,6 +57,9 @@ class Task:
         data = self.run_worker_gpu(gpu_num) if gpu_num is not None else self.run_worker()
         self.save(data)
 
+    def escape_path(self):
+    	return self.path.replace("/", "_")
+
     def run_worker(self):
         raise NotImplementedError
 
