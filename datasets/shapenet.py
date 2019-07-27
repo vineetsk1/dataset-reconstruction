@@ -1,6 +1,6 @@
 import os
 import json
-import pywavefront
+import pymesh
 from datasets.dataset import Dataset
 
 class Shapenet(Dataset):
@@ -42,5 +42,5 @@ class Shapenet(Dataset):
         return os.path.join(self._path, id, "models", "model_normalized.obj")
 
     def load(self, id):
-        obj = pywavefront.Wavefront(self.path(id), create_materials=True, collect_faces=True)
+        mesh = pymesh.load_mesh(self.path(id))
         return obj

@@ -1,7 +1,5 @@
 ===== ===== ===== =====
 
-integrated on napoli
-
 - scene: all objects placed in, if no match, place nothing
     > deepnds on multiple icps (one per model)
     > given a sumo obj, find the matching category in shapenet, perform icp on all objects in that shapenet category

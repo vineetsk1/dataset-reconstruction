@@ -19,14 +19,13 @@ pyglet==1.4.1
 pyparsing==2.4.1.1
 python-dateutil==2.8.0
 pytz==2019.1
-PyWavefront==1.1.0
 pyzmq==18.0.2
 requests==2.22.0
 scikit-learn==0.21.2
 scipy==1.3.0
 seaborn==0.9.0
 six==1.12.0
-torch==1.1.0.post2
+torch
 torchfile==0.1.0
 torchnet==0.0.4
 tornado==6.0.3
