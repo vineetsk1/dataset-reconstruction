@@ -43,4 +43,4 @@ class Shapenet(Dataset):
 
     def load(self, id):
         mesh = pymesh.load_mesh(self.path(id))
-        return obj
+        return mesh
