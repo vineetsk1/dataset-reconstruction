@@ -58,7 +58,8 @@ class Task:
         self.save(data)
 
     def escape_path(self):
-    	return self.path.replace("/", "_")
+        arr = self.path.split("/")
+        return arr[0] + "/" + "_".join(arr[1:])
 
     def run_worker(self):
         raise NotImplementedError
