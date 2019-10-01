@@ -1,15 +1,27 @@
 ===== ===== ===== =====
 
-- scene: all objects placed in, if no match, place nothing
-    > deepnds on multiple icps (one per model)
-    > given a sumo obj, find the matching category in shapenet, perform icp on all objects in that shapenet category
-
-incorporate with visualizer/logger
-
+SceneDataset:
 dataset sumo M items
     - just single scene for now
     - reimplement load project scene
     Sumo.py
 
-scene reconstruction
+MatchTask:
+mesh, taxonomy category
+need definition of matches across taxonomies
+
+SceneTask
+- scene: all objects placed in, if no match, place nothing
+    > deepnds on multiple icps (one per model)
+    > given a sumo obj, find the matching category in shapenet, perform icp on all objects in that shapenet category
+
+Main:
+scene reconstruction example
     main.py
+
+Worker/Task:
+add worker/main support across network (flask server)
+
+Visualize:
+visualize pc initial scene
+visualize pc final scene
